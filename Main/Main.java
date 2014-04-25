@@ -18,7 +18,7 @@ import static Util.Log.println;
 
 //First Person Camera Controller
 public class Main {
-    Camera camera = new Camera(0, 1, 0);
+    public Camera camera = new Camera(0, 1, 0);
 
     double currenttick = 0;
 
@@ -124,8 +124,8 @@ public class Main {
 
                 if (oldx != x || oldz != z) {
                     //Chunk Loading/unloading
-                    for (int i = x - 3; i < x + 3; i++) {
-                        for (int k = z - 3; k < z + 3; k++) {
+                    for (int i = x - 0; i < x + 0; i++) {
+                        for (int k = z - 0; k < z + 0; k++) {
                             Boolean found = false;
                             for (Chunk chunk : ChunkManager.LoadedChunksList) {
                                 if (chunk.x == -i * 6 && chunk.z == -k * 6) {
@@ -139,6 +139,7 @@ public class Main {
                             }
                         }
                     }
+                    println(ChunkManager.blockcount());
                     //ChunkManager.flushLoaded();
                 }
 

@@ -1,6 +1,7 @@
 package Chunks;
 
 import Blocks.Block;
+import Blocks.GrassBlock;
 
 import java.util.ArrayList;
 
@@ -8,14 +9,16 @@ import java.util.ArrayList;
  * Created by penagwin on 4/22/14.
  */
 public class Chunk {
-    public ArrayList<SubChunk> Layer1 = new ArrayList<SubChunk>(); //Layer1, Top layer; contains 2 and 3 and all blocks
-    public ArrayList<Block> BlocksList = new ArrayList<Block>(); //Layer1, Top layer; contains 2 and 3 and all blocks
+    //ChunkNodeTree goes X, Y, Z
+    public Block[][][] chunkTree = new Block[8][8][8];
+
 
     public void Generate() {
-        for (double i = x; i < 8 + x; i += 2) {
-            for (double k = z; k < 8 + z; k += 2) {
-                for (double l = y - 1; l < y; l += 2) {
-                    Layer1.add(new SubChunk(i, l, k, this));
+        for (float i = 0; i < 8; i += 1) {
+            for (float k = 0; k < 8; k += 1) {
+                for (float l = 0 ; l < 8; l += 1) {
+                    ChunkManager.Blockcount++;
+                    chunkTree[(int)i][(int)k][(int)l] = new GrassBlock(i-x, k-y, l-z);
                 }
             }
         }

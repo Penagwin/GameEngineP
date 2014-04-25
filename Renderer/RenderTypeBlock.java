@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 public class RenderTypeBlock extends RenderType {
     public static void render(float x, float y, float z, double color1, double color2, double color3) {
         Boolean top= true, down= true, back= true, front= true, left= true, right = true;
-        for (Chunk chunk : ChunkManager.LoadedChunksList) {
+        /*for (Chunk chunk : ChunkManager.LoadedChunksList) {
             for (Block block : chunk.BlocksList) {
                 if(block.x + 1 == x){
                     left = false;
@@ -26,7 +26,7 @@ public class RenderTypeBlock extends RenderType {
                     back = false;
                 }
             }
-        }
+        }*/
         GL11.glBegin(GL11.GL_QUADS);
         //HERE IS WHERE YOU BIND A TEXTURE
 
